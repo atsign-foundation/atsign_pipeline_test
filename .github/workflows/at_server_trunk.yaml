@@ -1,6 +1,7 @@
 name: atsign_pipeline_test
 on: [push, pull_request]
 
+
 jobs:
   build:
     runs-on: ubuntu-latest

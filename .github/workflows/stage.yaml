@@ -192,8 +192,9 @@ jobs:
   push_staging_virtual_env_images:
     # Runs only after functional tests are completed.
     needs: [ run_functional_test ]
-    if: ${{ github.repository == 'atsign-foundation/at_server' && github.event_name == 'push' && contains(github.ref, 'trunk') }}
-    environment: staging
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    environment: 
+      name: Staging
     env:
       working-directory: at_server
     runs-on: ubuntu-latest
